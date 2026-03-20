@@ -16,6 +16,7 @@
 
 body {
     background-color: var(--color-fondo);
+    font-family: "Inter", sans-serif;
 }
 
 .container {
@@ -28,6 +29,8 @@ body {
 .login-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 350px;
     background-color: var(--color-blanco);
     padding: 32px;
     border-radius: 10px;
@@ -45,7 +48,8 @@ body {
 
 .login-form h2 {
     color: var(--color-texto);
-    font-size: 1.125rem;
+    font-size: 1rem;
+    font-weight: normal;
     text-align: center;
     margin-bottom: 1.25rem;
 }
@@ -53,53 +57,61 @@ body {
 .login-form label {
     color: var(--color-texto);
     font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.login-form p {
     font-size: 0.8rem;
-    margin: 1rem;
-    font-weight: lighter;
-
+    margin-bottom: 0.3rem;
 }
 
-.login-form a{
+.login-form .registro {
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+.login-form a {
     text-decoration: none;
     font-weight: bold;
     color: var(--color-primario);
-
-
 }
 
-.login-form a:hover{
+.login-form a:hover {
     text-decoration: underline;
     color: var(--color-focus);
 }
 
-input {
+.login-form input {
+    width: 100%;
     padding: 0.625rem;
     border: 2px solid var(--color-borde);
     border-radius: 5px;
     font-size: 0.875rem;
     margin-bottom: 0.625rem;
+    font-family: inherit; 
 }
 
-input:focus {
+.login-form input:focus {
     outline: none;
     border-color: var(--color-focus);
     box-shadow: 0 0 3px var(--color-focus);
 }
 
-.login-form button  {
-    
+.login-form button {
+    background: var(--color-primario);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
     color: var(--color-blanco);
-    font-size: 1rem;
-    background-color: var(--color-primario);
+    font-weight:bold;
+    font-size: 0.90rem;
+}
+
+.login-form button:hover {
+    cursor: pointer;
+    background-color: var(--color-focus);
+    box-shadow: 1px 2px 6px var(--color-focus);
+}
+
+.login-form button:active{
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px var(--color-focus);
     
 }
-
-button:hover {
-    cursor: pointer;
-}
-
