@@ -1,0 +1,26 @@
+:root{
+--color—primario: #ff6347;
+--color—fondo: #f0f0f0;
+--color-texto: #333;
+--color—blanco: #fff;
+--color—borde: #ddd;
+--color—focus: #ff4500;
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color—fondo);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
