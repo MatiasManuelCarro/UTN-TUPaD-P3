@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* @IMPORT siempre al inicio */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg-body: #1c1c1c;
+    /* gris muy claro para el fondo general */
+    --color-bg-contenedor: #2a2a2a;
+    /* blanco para los contenedores principales */
+    --color-bg-tarjeta: #95a5a6;
+    /* amarillo cálido para las tarjetas */
+    --color-primario: #e63946;
+    /* rojo intenso como acento principal */
+    --color-text: #fff;
+    /* azul oscuro para el texto */
+    --border-radius: 8px;
+}
+
+body {
+    background-color: var(--color-bg-body);
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    color: var(--color-text);
+    padding: 1.2rem;
+    text-align: center;
+}
+
+h1 {
+    color: var(--color-primario);
+}
+
+.input__buscar {
+    margin-top: 1rem;
+    padding: 0.625rem;
+    width: 250px;
+    border-radius: var(--border-radius);
+    border: none;
+    font-size: 1rem;
+}
+
+.input__buscar:focus {
+    outline: 2px solid var(--color-primario);
+}
+
+.contenedor__pokemones {
+    margin: 1rem auto;
+    min-width: 25rem;
+    max-width: 75rem;
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* se adapta a la pantalla */
+    gap: 1rem;
+    padding: 0.625rem;
+    grid-auto-rows: min-content;
+    justify-content: center;
+    max-width: 100%;
+    overflow: auto;
+
+}
+
+.contenedor__pokemones--flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta{
+    width: 100%;
+    max-width: 220px;
+    background-color: var(--color-bg-tarjeta);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    padding: 2rem 0.625rem;
+    box-shadow: 0 2px 5px rbga(0, 0, 0, 0.2);
+    transition: transform .2s ease-in-out;
+}
+
+.tarjeta img{
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
+.tarjeta:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+}
