@@ -1,11 +1,14 @@
 const listaCategorias = document.getElementById("lista-categorias");
 const contenedorProductos = document.getElementById("contenedor-productos");
 const modal = document.getElementById("modal");
-const cerrarcarrito = document.getElementById("cerrar-carrito");
+const cerrarCarrito = document.getElementById("cerrar-carrito");
+const modalCarrito = document.getElementById('modal-carrito');
+const mensajeCarrito = document.getElementById("mensaje-carrito");
 
 
-cerrarcarrito.onclick = function () {
+cerrarCarrito.onclick = function () {
     modal.style.display = "none";
+    mensajeCarrito.textContent ="";
 }
 
 
@@ -14,7 +17,9 @@ window.onclick = function (event) {
     const modal = document.getElementById("modal");
     if (event.target === modal) {
         modal.style.display = "none";
+        mensajeCarrito.textContent ="";
     }
+
 };
 
 
@@ -49,30 +54,12 @@ const cargarProductos = () => {
 cargarProductos();
 
 
-// contenedorProductos.addEventListener("click", (evento) => {
-//     if (evento.target.classList.contains("btn-carrito")) {
-//         const idProducto = evento.target.dataset.id;
-//         const producto = productos.find(p => p.id == idProducto);
-//         // alert(`Se agrega al carrito: ${producto.nombre}`)
-//         const modalCarrito = document.getElementById('modal-carrito');
-//         modalCarrito.innerHTML = `<p>Carrito de Compras</p>
-//         <p>Se agrega al carrito: ${producto.nombre}</p>`
-//         modal.style.display = "block";
-//     }
-
-
-    contenedorProductos.addEventListener("click", (evento) => {
+contenedorProductos.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("btn-carrito")) {
         const idProducto = evento.target.dataset.id;
-        const producto = productos.find(p => p.id == idProducto);
-        // alert(`Se agrega al carrito: ${producto.nombre}`)
-        const modalCarrito = document.getElementById('modal-carrito');
-        modalCarrito.innerHTML = `<p>Carrito de Compras</p>
-        <p>Se agrega al carrito: ${producto.nombre}</p>`
+        const producto = productos.find(p => p.id == idProducto);        
+        mensajeCarrito.textContent = `Se agrega al carrito: ${producto.nombre}`;
         modal.style.display = "block";
     }
-
-
-
 });
 
