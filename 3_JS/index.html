@@ -4,51 +4,55 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Food Store</title>
 </head>
 
 <body>
-    <header>
-        <h1>&#127828; Food Store</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Mis Pedidos</a></li>
-                <li><a href="#">Carrito</a></li>
-                <li><a href="admin.html">Panel Admin</a></li>
+    <header class="site-header">
+        <a href="index.html" class="site-header__brand">
+            <h1>&#127828; Food Store</h1>
+        </a>
+        <nav class="site-nav">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Inicio</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="#">Mis Pedidos</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="#">Carrito</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="#">Panel Admin</a></li>
+                <li class="site-nav__item" id="login-button"><a class="site-nav__link" href="#">Iniciar Sesion</a></li>
             </ul>
         </nav>
     </header>
-    <hr />
-    <aside>
-        <h2>Categorias</h2>
-        <ul id="lista-categorias"></ul>
+    <hr class="divider" />
+    <aside class="sidebar">
+        <h2 class="categorias__heading">Categorias</h2>
+        <ul id="lista-categorias" class="sidebar__list"></ul>
     </aside>
-    <main>
-        <form>
-            <label for="buscarProducto">Buscar Productos</label>
-            <input id="buscarProducto" type="text" placeholder="Buscar productos" />
-            <button type="submit">Buscar</button>
+    <main class="main">
+        <form class="search">
+            <label class="search__label" for="buscarProducto">Buscar Productos</label>
+            <input id="buscarProducto" class="search__input" type="text" placeholder="Buscar..." />
+            <button class="search__button" type="submit">Buscar</button>
         </form>
 
-        <h2>Productos Destacados</h2>
-        <section id="contenedor-productos"></section>
+        <h2 class="products__heading">Productos Destacados</h2>
+        <section id="contenedor-productos" class="products"></section>
     </main>
-    <footer>
-        <small>&reg; 2026 Food Store. Todos los derechos reservados. <br />Pagina
+    <footer class="site-footer">
+        <small class="site-footer__small">&reg; 2026 Food Store. Todos los derechos reservados. <br />Pagina
             creada por Matias Carro <br />matiasmanuelcarro@gmail.com
         </small>
     </footer>
     <div id="modal" class="modal">
         <div id="modal-carrito" class="modal-ventana">
-        <h2 class="modal-ventana__title">Carrito de compras</h2>
-        <p id= "mensaje-carrito" class="modal-ventana__mensaje"></p>
-        <button class="modal-carrito__close close" id="cerrar-carrito">&times;</button></div>
+            <h2 class="modal-ventana__title">Carrito de compras</h2>
+            <p id="mensaje-carrito" class="modal-ventana__mensaje"></p>
+            <button class="modal-carrito__close close" id="cerrar-carrito">&times;</button>
+        </div>
     </div>
 
-    <script src="/js/data.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

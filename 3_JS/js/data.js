@@ -7,7 +7,7 @@ const productos = [
         nombre: "Hamburguesa Triple",
         descripcion: "Triple carne, cheddar y bacon",
         precio: 25000,
-        imagen: "/img/hamburguesa.jpg",
+        imagen: "img/hamburguesa.jpg",
         categoria: "Hamburguesas"
     },
     {
@@ -15,7 +15,7 @@ const productos = [
         nombre: "Pizza Muzzarella",
         descripcion: "Salsa casera y orégano",
         precio: 18000,
-        imagen: "/img/pizza.jpg",
+        imagen: "img/pizza.jpg",
         categoria: "Pizzas"
     },
     {
@@ -23,23 +23,23 @@ const productos = [
         nombre: "Papas Fritas",
         descripcion: "Porción de papas fritas",
         precio: 9000,
-        imagen: "/img/papas_fritas.jpg",
-        categoria: "Papa Fritas"
+        imagen: "img/papas_fritas.jpg",
+        categoria: "Papas Fritas"
     },
         {
         id: 4,
         nombre: "Papas Fritas con Cheddar y Panceta",
         descripcion: "Porción de papas fritas con mucho Cheddar y Panceta",
         precio: 12000,
-        imagen: "/img/papas_fritas_cheddar.jpg",
-        categoria: "Papa Fritas"
+        imagen: "img/papas_fritas_cheddar.jpg",
+        categoria: "Papas Fritas"
     },
     {
         id: 5,
         nombre: "Gaseosa",
         descripcion: "Gaseosa de 500ml",
         precio: 2500,
-        imagen: "/img/gaseosa.jpg",
+        imagen: "img/gaseosa.jpg",
         categoria: "Bebidas"
     },
         {
@@ -47,7 +47,7 @@ const productos = [
         nombre: "Agua",
         descripcion: "Agua de 500ml",
         precio: 1500,
-        imagen: "/img/agua.jpg",
+        imagen: "img/agua.jpg",
         categoria: "Bebidas"
     },
 

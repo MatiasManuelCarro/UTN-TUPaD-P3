@@ -27,8 +27,9 @@ window.onclick = function (event) {
 const cargarCategorias = () => {
     categorias.forEach((categoria) => {
         const li = document.createElement('li')
-        li.innerHTML = `<a href="#">${categoria}</a>`
-        listaCategorias.appendChild(li)
+        li.innerHTML = `<a href="#">${categoria}</a>`;
+        li.classList.add("categorias");
+        listaCategorias.appendChild(li);
 
     });
 }
@@ -39,12 +40,14 @@ const cargarProductos = () => {
         const productosDestacados = document.createElement('article')
         productosDestacados.classList.add("productosDestacados")
         productosDestacados.innerHTML = `
-        <img src=${producto.imagen} img alt=${producto.nombre} />
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <p>Precio: $${producto.precio}</p>
+        <img src="${producto.imagen}" alt="Imagen de ${producto.nombre}" />
+        <p class=productos-categoria>${producto.categoria}</p>
+        <h3 class=productos-nombre>${producto.nombre}</h3>
+        <p class=producto-descripcion>${producto.descripcion}</p>
+        <p class=producto-precio>Precio: $${producto.precio}</p>
+        <div class="botones">
         <button class=btn-detalles data-id="${producto.id}">Ver Detalles</button>
-        <button class=btn-carrito data-id="${producto.id}">Agregar al Carrito</button>
+        <button class=btn-carrito data-id="${producto.id}">Agregar al Carrito</button></div>
         `
         contenedorProductos.appendChild(productosDestacados);
 
