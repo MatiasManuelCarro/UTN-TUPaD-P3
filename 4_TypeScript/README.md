@@ -1,5 +1,7 @@
 # Proyecto: Protección de Rutas (Educativo)
 
+# Realizado por Matias Carro
+
 ## ✍️ Descripción
 
 Este es un proyecto de demostración creado con fines educativos para ilustrar un mecanismo básico de protección de rutas en el lado del cliente (frontend) utilizando **Vite** y **TypeScript**.

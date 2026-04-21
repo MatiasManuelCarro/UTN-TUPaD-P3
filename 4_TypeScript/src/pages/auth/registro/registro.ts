@@ -2,16 +2,19 @@ import type { IUser } from "../../../types/IUser";
 import { saveUser, findUserByEmail } from "../../../utils/localStorage";
 
 document.addEventListener('DOMContentLoaded', () => {
-const errorMessage = document.getElementById('error') as HTMLDivElement | null;
+const errorMessage = document.getElementById('error') as HTMLDivElement;
 const form = document.getElementById('register-form') as HTMLFormElement;
 form.addEventListener('submit', registerSubmit);
 
+
 const showError = (msg: string) => {
     if (errorMessage) errorMessage.textContent = msg;
+    errorMessage.style.display = "block";
 };
 
 const clearError = () => {
     if (errorMessage) errorMessage.textContent = '';
+    errorMessage.style.display = "none";
 };
 
 
@@ -42,9 +45,9 @@ function registerSubmit(event: Event) {
     };
 
     //agrega usuario y cambia a la pagina de login
+    alert("Usuario creado correctamente")
     saveUser(newUser);
     location.href = '/src/pages/auth/login/login.html';
-    console.log("registrarme presionado")
 }
 });
 

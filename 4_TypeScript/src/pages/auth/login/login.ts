@@ -13,16 +13,24 @@ function handleLogin(e: SubmitEvent) {
 
   const userEmail = inputEmail.value.trim().toLowerCase();
   const userPassword = inputPassword.value;
+  const errorDiv = document.getElementById("error") as HTMLDivElement;
+  errorDiv.textContent = ""; // limpia cualquier mensaje previo
+  errorDiv.style.display = "none";
+
 
   // Buscar usuario
   const user = findUserByEmail(userEmail);
 
-if (!user) {
-    return alert("No existe un usuario con ese email.");
+  if (!user) {
+    errorDiv.textContent = "No existe un usuario con ese email.";
+    errorDiv.style.display = "block";
+    return;
   }
 
   if (user.password !== userPassword) {
-    return alert("Contraseña incorrecta.");
+    errorDiv.textContent = "Contraseña incorrecta.";
+    errorDiv.style.display = "block";
+    return;
   }
 
  // Guardar sesión iniciada

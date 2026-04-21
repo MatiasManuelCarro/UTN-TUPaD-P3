@@ -1,12 +1,15 @@
 import { getUserData } from "./utils/localStorage";
 import { navigate } from "./utils/navigate";
 import type { IUser } from "./types/IUser";
+import { initAdmin } from "./utils/localStorage";
+
+console.log("Main.ts Cargado");
 
 export function guard(requiredRole?: "admin" | "client") {
     const userData = getUserData();
 
     if (!userData) {
-        // No hay sesión → al login
+        // No hay sesión redirecciona al login
         navigate("/src/pages/auth/login/login.html");
         return;
     }
@@ -22,3 +25,6 @@ export function guard(requiredRole?: "admin" | "client") {
         }
     }
 }
+
+//inicia el admin
+initAdmin();
