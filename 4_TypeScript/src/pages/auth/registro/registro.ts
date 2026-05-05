@@ -20,7 +20,7 @@ const clearError = () => {
 
 function registerSubmit(event: Event) {
     event.preventDefault();
-    //deja el error en blanco al cargar;
+    //deja el error en blanco al cargar
     clearError();
 
     //Get Elements
