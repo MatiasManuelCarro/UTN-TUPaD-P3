@@ -1,23 +1,27 @@
 package com.tup.programacion3.entities;
 
-public class Producto {
+import java.util.Objects;
+
+public class Producto extends Base{
     private String nombre;
     private Double precio;
     private String descripcion;
     private int stock;
     private String imagen;
     private boolean disponible;
+    private Categoria categoria;
 
     public Producto() {
     }
 
-    public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible) {
+    public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.stock = stock;
         this.imagen = imagen;
         this.disponible = disponible;
+        this.categoria = categoria;
     }
 
     public String getNombre() {
@@ -67,4 +71,42 @@ public class Producto {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", stock=" + stock +
+                ", imagen='" + imagen + '\'' +
+                ", disponible=" + disponible +
+                ", categoria=" + categoria +
+                ", id=" + id +
+                ", eliminado=" + eliminado +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Producto producto = (Producto) obj;
+        return this.id == producto.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }

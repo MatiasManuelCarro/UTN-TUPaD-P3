@@ -1,10 +1,12 @@
 package com.tup.programacion3.entities;
-import com.tup.programacion3.entities.Pedido;
 import com.tup.programacion3.enums.Rol;
-import java.util.List;
-import java.util.ArrayList;
 
-public class Usuario {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+
+public class Usuario extends Base{
     private String nombre;
     private String apellido;
     private String mail;
@@ -26,6 +28,18 @@ public class Usuario {
         this.contraseña = contraseña;
         this.rol = rol;
     }
+
+    private List<Pedido> pedidos = new ArrayList<>();
+
+    public void addPedido(Pedido pedido) {
+        pedidos.add(pedido);
+        pedido.setUsuario(this); // relacion
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -92,6 +106,9 @@ public class Usuario {
                 ", celular='" + celular + '\'' +
                 ", contraseña='" + contraseña + '\'' +
                 ", rol=" + rol +
+                ", id=" + id +
+                ", eliminado=" + eliminado +
+                ", createdAt=" + createdAt +
                 '}';
     }
 
@@ -100,11 +117,11 @@ public class Usuario {
         if(this == obj) return true;
         if(obj == null || getClass()!=obj.getClass())return false;
         Usuario usuario = (Usuario) obj;
-        return this.mail == usuario.getMail() && this.celular.equals(usuario.celular);
+        return this.id == usuario.getId() && this.mail.equals(usuario.mail);
             }
     @Override
     public int hashCode(){
-        return Object.hash(mail, celular);
+        return Objects.hash(id, mail);
     }
 }
 
