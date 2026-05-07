@@ -3,6 +3,8 @@ import com.tup.programacion3.enums.Estado;
 import com.tup.programacion3.enums.FormaPago;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pedido extends Base {
@@ -13,6 +15,13 @@ public class Pedido extends Base {
     private Usuario usuario;
 
 
+    private List<DetallePedido> detallePedidos = new ArrayList<>();
+
+    public Pedido() {
+        super();
+    }
+
+
     //constructor sin usuario
     public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago) {
         this.fecha = fecha;
@@ -21,8 +30,7 @@ public class Pedido extends Base {
         this.formapago = formapago;
     }
 
-    public Pedido() {
-    }
+
 
     public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago, Usuario usuario) {
         this.fecha = fecha;
@@ -31,6 +39,34 @@ public class Pedido extends Base {
         this.formapago = formapago;
         this.usuario = usuario;
     }
+
+
+    // 1) Agregar detalle
+    public void addDetallePedido(int cantidad, Producto producto) {
+        double subtotal = cantidad * producto.getPrecio();
+        DetallePedido detalle = new DetallePedido(cantidad, subtotal);
+        detallePedidos.add(detalle);
+    }
+
+    // 2) Buscar detalle por producto
+    public DetallePedido findDetallePedidoByProducto(Producto producto) {
+        for (DetallePedido d : detallePedidos) {
+            if (d.getSubtotal() == producto.getPrecio() * d.getCantidad()) {
+                return d;
+            }
+        }
+        return null;
+    }
+
+    // 3) Eliminar detalle por producto
+    public void deleteDetalleByProducto(Producto producto) {
+        detallePedidos.removeIf(
+                d -> d.getSubtotal() == producto.getPrecio() * d.getCantidad()
+        );
+    }
+
+
+
 
     public Usuario getUsuario() {
         return usuario;
@@ -71,6 +107,9 @@ public class Pedido extends Base {
     public void setFormapago(FormaPago formapago) {
         this.formapago = formapago;
     }
+
+//    Detalles de pedido
+
 
     @Override
     public String toString() {
