@@ -24,6 +24,7 @@ public class Pedido extends Base implements Calculable{
 
     //constructor sin usuario
     public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago) {
+        super();
         this.fecha = fecha;
         this.estado = estado;
         this.total = total;
@@ -33,6 +34,7 @@ public class Pedido extends Base implements Calculable{
 
 
     public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago, Usuario usuario) {
+        super();
         this.fecha = fecha;
         this.estado = estado;
         this.total = total;
@@ -51,7 +53,7 @@ public class Pedido extends Base implements Calculable{
     //Buscar detalle por producto
     public DetallePedido findDetallePedidoByProducto(Producto producto) {
         for (DetallePedido d : detallePedidos) {
-            if (d.getSubtotal() == producto.getPrecio() * d.getCantidad()) {
+            if (d.getProducto().equals(producto)) {
                 return d;
             }
         }
@@ -61,12 +63,9 @@ public class Pedido extends Base implements Calculable{
 
     //Eliminar detalle por producto
     public void deleteDetalleByProducto(Producto producto) {
-        detallePedidos.removeIf(
-                d -> d.getSubtotal() == producto.getPrecio() * d.getCantidad()
-        );
-
-
+        detallePedidos.removeIf(d -> d.getProducto().equals(producto));
     }
+
 
 
 
@@ -115,12 +114,15 @@ public class Pedido extends Base implements Calculable{
 
     @Override
     public void calcularTotal() {
-        Double totalFinal = 0.0;
+        double totalFinal = 0.0;
 
         for (DetallePedido d : detallePedidos) {
             totalFinal += d.getSubtotal();
         }
-        System.out.println("Total del pedido:" + totalFinal);
+
+        this.total = totalFinal;
+
+        System.out.println("Total del pedido: " + totalFinal);
     }
 
 
@@ -130,11 +132,9 @@ public class Pedido extends Base implements Calculable{
                 "fecha=" + fecha +
                 ", estado=" + estado +
                 ", total=" + total +
-                ", formapago=" + formapago +
+                ", formaPago=" + formapago +
+                ", detalles=" + detallePedidos.size() +
                 ", id=" + id +
-                ", eliminado=" + eliminado +
-                ", createdAt=" + createdAt +
-                ", detalles=" + detallePedidos +
                 '}';
     }
 

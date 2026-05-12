@@ -55,16 +55,17 @@ public class DetallePedido extends Base {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Pedido pedido = (Pedido) obj;
-        return this.id == pedido.getId();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DetallePedido that = (DetallePedido) o;
+        return cantidad == that.cantidad &&
+                Objects.equals(producto, that.producto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(cantidad, producto);
     }
 
 

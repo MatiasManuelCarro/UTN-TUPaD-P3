@@ -15,6 +15,7 @@ public class Producto extends Base{
     }
 
     public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
+        super();
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
@@ -97,16 +98,17 @@ public class Producto extends Base{
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Producto producto = (Producto) obj;
-        return this.id == producto.getId();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Producto producto = (Producto) o;
+        return Objects.equals(nombre, producto.nombre) &&
+                Objects.equals(precio, producto.precio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(nombre, precio);
     }
 
 }

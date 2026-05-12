@@ -1,9 +1,7 @@
 package com.tup.programacion3.entities;
 import com.tup.programacion3.enums.Rol;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 public class Usuario extends Base{
@@ -18,6 +16,7 @@ public class Usuario extends Base{
 
 
     public Usuario(){
+        super();
     }
 
     public Usuario(String nombre, String apellido, String mail, String celular, String contraseña, Rol rol) {
@@ -29,14 +28,14 @@ public class Usuario extends Base{
         this.rol = rol;
     }
 
-    private List<Pedido> pedidos = new ArrayList<>();
+    private Set<Pedido> pedidos = new HashSet<>();
 
     public void addPedido(Pedido pedido) {
         pedidos.add(pedido);
         pedido.setUsuario(this); // relacion
     }
 
-    public List<Pedido> getPedidos() {
+    public Set<Pedido> getPedidos() {
         return pedidos;
     }
 

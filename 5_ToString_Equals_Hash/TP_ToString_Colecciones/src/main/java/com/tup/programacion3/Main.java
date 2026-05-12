@@ -9,6 +9,7 @@ import com.tup.programacion3.enums.FormaPago;
 import com.tup.programacion3.enums.Rol;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -54,6 +55,8 @@ public class Main {
         Producto p9 = new Producto("HDD Seagate 2TB", 35000.0, "Disco rígido 2TB", 20, "hdd2tb.jpg", true, cat3);
         Producto p10 = new Producto("SSD Samsung 980 Pro 2TB", 120000.0, "SSD NVMe Samsung 980 Pro 2TB", 10, "980pro.jpg", true, cat3);
 
+        // Colección de productos
+        Set<Producto> productos = Set.of(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10);
 
         // ============================
         // 4. PEDIDOS (3)
@@ -87,6 +90,18 @@ public class Main {
 
 
         // ============================
+        // 6. Mostrar un producto
+        // ============================
+        System.out.println("\n=== Mostrar un producto ===");
+        System.out.println(p1);
+
+        // ============================
+        // 7. Listado de productos
+        // ============================
+        System.out.println("\n=== Listado de productos ===");
+        productos.forEach(System.out::println);
+
+        // ============================
         // Mostrar datos
         // ============================
         System.out.println("Usuarios:");
@@ -104,7 +119,37 @@ public class Main {
             System.out.println(p);
             p.calcularTotal();
         }
+
+        // ============================
+        // 8. Usuario con más pedidos
+        // ============================
+        System.out.println("\n=== Usuario con más pedidos ===");
+        Usuario usuarioConMasPedidos =
+                (u1.getPedidos().size() > u2.getPedidos().size()) ? u1 : u2;
+
+        System.out.println("Usuario con más pedidos: " + usuarioConMasPedidos.getNombre());
+        usuarioConMasPedidos.getPedidos().forEach(System.out::println);
+
+        // ============================
+        // 9. Comparación de productos (Punto 5 del TP)
+        // ============================
+        System.out.println("\n=== Comparación de productos ===");
+
+        Producto p1Duplicado = new Producto(
+                "RTX 4060",
+                450000.0,
+                "NVIDIA RTX 4060 8GB",
+                10,
+                "rtx4060.jpg",
+                true,
+                cat1
+        );
+
+        boolean existe = productos.contains(p1Duplicado);
+        System.out.println("¿El producto duplicado ya existe en el Set? " + existe);
     }
+       
+
 }
 
 

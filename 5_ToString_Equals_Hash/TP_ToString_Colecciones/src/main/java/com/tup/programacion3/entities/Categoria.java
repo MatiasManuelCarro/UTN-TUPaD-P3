@@ -1,6 +1,7 @@
 package com.tup.programacion3.entities;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Categoria extends Base{
@@ -13,6 +14,7 @@ public class Categoria extends Base{
     }
 
     public Categoria(String nombre, String descripcion) {
+        super();
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
@@ -36,6 +38,29 @@ public class Categoria extends Base{
     public void addProducto(Producto producto) {
         productos.add(producto);
         producto.setCategoria(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", productos=" + productos.size() +
+                ", id=" + id +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categoria categoria = (Categoria) o;
+        return Objects.equals(nombre, categoria.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 }
 
