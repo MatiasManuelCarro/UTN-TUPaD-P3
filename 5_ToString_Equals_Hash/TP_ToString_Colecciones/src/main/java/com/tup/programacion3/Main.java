@@ -148,8 +148,4 @@ public class Main {
         boolean existe = productos.contains(p1Duplicado);
         System.out.println("¿El producto duplicado ya existe en el Set? " + existe);
     }
-       
-
 }
-
-
