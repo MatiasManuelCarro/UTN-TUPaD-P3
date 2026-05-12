@@ -1,13 +1,13 @@
 package com.tup.programacion3.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Categoria extends Base{
     private String nombre;
     private String descripcion;
 
-    private List<Producto> productos = new ArrayList<>();
+    private Set<Producto> productos = new HashSet<>();
 
     public Categoria() {
     }

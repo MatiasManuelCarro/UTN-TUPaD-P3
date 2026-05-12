@@ -62,6 +62,7 @@ public class Main {
         Pedido ped2 = new Pedido(LocalDate.now(), Estado.CONFIRMADO, 0.0, FormaPago.TARJETA);
         Pedido ped3 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.TRANSFERENCIA);
 
+
         // Relacionar pedidos con usuarios
         u1.addPedido(ped1);
         u1.addPedido(ped2);
@@ -73,16 +74,16 @@ public class Main {
         // ============================
 
         // Pedido 1
-        ped1.addDetallePedido(1, p1); // RTX 4060
-        ped1.addDetallePedido(2, p7); // 2 SSD Kingston
+        ped1.addDetallePedido(1, p1);
+        ped1.addDetallePedido(2, p7);
 
         // Pedido 2
-        ped2.addDetallePedido(1, p4); // Intel i5
-        ped2.addDetallePedido(1, p8); // SSD NVMe 1TB
+        ped2.addDetallePedido(1, p4);
+        ped2.addDetallePedido(1, p8);
 
         // Pedido 3
-        ped3.addDetallePedido(3, p3); // 3 RX 7600
-        ped3.addDetallePedido(1, p10); // SSD Samsung 980 Pro 2TB
+        ped3.addDetallePedido(3, p3);
+        ped3.addDetallePedido(1, p10);
 
 
         // ============================
@@ -95,11 +96,13 @@ public class Main {
         System.out.println("\nPedidos del usuario 1:");
         for (Pedido p : u1.getPedidos()) {
             System.out.println(p);
+            p.calcularTotal();
         }
 
         System.out.println("\nPedidos del usuario 2:");
         for (Pedido p : u2.getPedidos()) {
             System.out.println(p);
+            p.calcularTotal();
         }
     }
 }

@@ -1,21 +1,21 @@
 package com.tup.programacion3.entities;
+
 import com.tup.programacion3.enums.Estado;
 import com.tup.programacion3.enums.FormaPago;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-public class Pedido extends Base {
+public class Pedido extends Base implements Calculable{
     private LocalDate fecha;
     private Estado estado;
     private Double total;
     private FormaPago formapago;
     private Usuario usuario;
 
-
-    private List<DetallePedido> detallePedidos = new ArrayList<>();
+    private Set<DetallePedido> detallePedidos = new HashSet<>();
 
     public Pedido() {
         super();
@@ -41,14 +41,14 @@ public class Pedido extends Base {
     }
 
 
-    // 1) Agregar detalle
+    //Agregar detalle
     public void addDetallePedido(int cantidad, Producto producto) {
         double subtotal = cantidad * producto.getPrecio();
-        DetallePedido detalle = new DetallePedido(cantidad, subtotal);
+        DetallePedido detalle = new DetallePedido(cantidad, subtotal, producto);
         detallePedidos.add(detalle);
     }
 
-    // 2) Buscar detalle por producto
+    //Buscar detalle por producto
     public DetallePedido findDetallePedidoByProducto(Producto producto) {
         for (DetallePedido d : detallePedidos) {
             if (d.getSubtotal() == producto.getPrecio() * d.getCantidad()) {
@@ -58,11 +58,14 @@ public class Pedido extends Base {
         return null;
     }
 
-    // 3) Eliminar detalle por producto
+
+    //Eliminar detalle por producto
     public void deleteDetalleByProducto(Producto producto) {
         detallePedidos.removeIf(
                 d -> d.getSubtotal() == producto.getPrecio() * d.getCantidad()
         );
+
+
     }
 
 
@@ -110,6 +113,16 @@ public class Pedido extends Base {
 
 //    Detalles de pedido
 
+    @Override
+    public void calcularTotal() {
+        Double totalFinal = 0.0;
+
+        for (DetallePedido d : detallePedidos) {
+            totalFinal += d.getSubtotal();
+        }
+        System.out.println("Total del pedido:" + totalFinal);
+    }
+
 
     @Override
     public String toString() {
@@ -121,6 +134,7 @@ public class Pedido extends Base {
                 ", id=" + id +
                 ", eliminado=" + eliminado +
                 ", createdAt=" + createdAt +
+                ", detalles=" + detallePedidos +
                 '}';
     }
 

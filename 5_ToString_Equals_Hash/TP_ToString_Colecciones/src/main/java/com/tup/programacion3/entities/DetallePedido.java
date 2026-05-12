@@ -1,18 +1,22 @@
 package com.tup.programacion3.entities;
 
 
+import java.util.Objects;
+
 public class DetallePedido extends Base {
 
     private int cantidad;
     private Double subtotal;
+    private Producto producto;
 
     public DetallePedido() {
         super();
     }
 
-    public DetallePedido(int cantidad, Double subtotal) {
+    public DetallePedido(int cantidad, Double subtotal, Producto producto) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
+        this.producto = producto;
     }
 
     public int getCantidad() {
@@ -31,5 +35,39 @@ public class DetallePedido extends Base {
         this.subtotal = subtotal;
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "DetallePedido{" +
+                "producto=" + producto.getNombre() +
+                ", cantidad=" + cantidad +
+                ", subtotal=" + subtotal +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Pedido pedido = (Pedido) obj;
+        return this.id == pedido.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+
 }
+
 
