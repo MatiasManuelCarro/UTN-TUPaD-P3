@@ -1,20 +1,18 @@
 package com.utn.entities;
 
-import com.utn.entities.Base;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import java.util.Objects;
 
 @Getter
 @Setter
 
 @ToString
-//revisar el callsuper
 @EqualsAndHashCode(callSuper = false, of = {"nombre", "precio"})
-
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Producto extends Base {
     private String nombre;
     private Double precio;
@@ -24,20 +22,5 @@ public class Producto extends Base {
     private boolean disponible;
 
     private Categoria categoria;
-
-    public Producto() {
-        super();
-    }
-
-    public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible) {
-        super();
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.stock = stock;
-        this.imagen = imagen;
-        this.disponible = disponible;
-    }
-
 
 }

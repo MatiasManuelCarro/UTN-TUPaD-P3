@@ -41,18 +41,105 @@ public class Main {
         // ============================
 
         //Instanciando productos
-        Producto p1 = new Producto("RTX 4060", 450000.0, "NVIDIA RTX 4060 8GB", 10, "rtx4060.jpg", true);
-        Producto p2 = new Producto("RTX 4070 Super", 750000.0, "NVIDIA RTX 4070 Super 12GB", 8, "rtx4070s.jpg", true);
-        Producto p3 = new Producto("RX 7600", 380000.0, "AMD Radeon RX 7600 8GB", 12, "rx7600.jpg", true);
+        Producto p1 = Producto.builder()
+                .nombre("RTX 4060")
+                .precio(450000.0)
+                .descripcion("NVIDIA RTX 4060 8GB")
+                .stock(10)
+                .imagen("rtx4060.jpg")
+                .disponible(true)
+                .categoria(cat1)
+                .build();
 
-        Producto p4 = new Producto("Intel i5 12400F", 180000.0, "Intel Core i5 12th Gen", 20, "i512400f.jpg", true);
-        Producto p5 = new Producto("Intel i7 13700K", 420000.0, "Intel Core i7 13th Gen", 15, "i713700k.jpg", true);
-        Producto p6 = new Producto("Ryzen 5 5600X", 200000.0, "AMD Ryzen 5 5600X", 18, "r55600x.jpg", true);
+        Producto p2 = Producto.builder()
+                .nombre("RTX 4070 Super")
+                .precio(750000.0)
+                .descripcion("NVIDIA RTX 4070 Super 12GB")
+                .stock(8)
+                .imagen("rtx4070s.jpg")
+                .disponible(true)
+                .categoria(cat1)
+                .build();
 
-        Producto p7 = new Producto("SSD Kingston 480GB", 25000.0, "SSD SATA 480GB", 30, "ssd480.jpg", true);
-        Producto p8 = new Producto("SSD NVMe 1TB", 55000.0, "SSD M.2 NVMe 1TB", 25, "nvme1tb.jpg", true);
-        Producto p9 = new Producto("HDD Seagate 2TB", 35000.0, "Disco rígido 2TB", 20, "hdd2tb.jpg", true);
-        Producto p10 = new Producto("SSD Samsung 980 Pro 2TB", 120000.0, "SSD NVMe Samsung 980 Pro 2TB", 10, "980pro.jpg", true);
+        Producto p3 = Producto.builder()
+                .nombre("RX 7600")
+                .precio(380000.0)
+                .descripcion("AMD Radeon RX 7600 8GB")
+                .stock(12)
+                .imagen("rx7600.jpg")
+                .disponible(true)
+                .categoria(cat1)
+                .build();
+
+        Producto p4 = Producto.builder()
+                .nombre("Intel i5 12400F")
+                .precio(180000.0)
+                .descripcion("Intel Core i5 12th Gen")
+                .stock(20)
+                .imagen("i512400f.jpg")
+                .disponible(true)
+                .categoria(cat2)
+                .build();
+
+        Producto p5 = Producto.builder()
+                .nombre("Intel i7 13700K")
+                .precio(420000.0)
+                .descripcion("Intel Core i7 13th Gen")
+                .stock(15)
+                .imagen("i713700k.jpg")
+                .disponible(true)
+                .categoria(cat2)
+                .build();
+
+        Producto p6 = Producto.builder()
+                .nombre("Ryzen 5 5600X")
+                .precio(200000.0)
+                .descripcion("AMD Ryzen 5 5600X")
+                .stock(18)
+                .imagen("r55600x.jpg")
+                .disponible(true)
+                .categoria(cat2)
+                .build();
+
+        Producto p7 = Producto.builder()
+                .nombre("SSD Kingston 480GB")
+                .precio(25000.0)
+                .descripcion("SSD SATA 480GB")
+                .stock(30)
+                .imagen("ssd480.jpg")
+                .disponible(true)
+                .categoria(cat3)
+                .build();
+
+        Producto p8 = Producto.builder()
+                .nombre("SSD NVMe 1TB")
+                .precio(55000.0)
+                .descripcion("SSD M.2 NVMe 1TB")
+                .stock(25)
+                .imagen("nvme1tb.jpg")
+                .disponible(true)
+                .categoria(cat3)
+                .build();
+
+        Producto p9 = Producto.builder()
+                .nombre("HDD Seagate 2TB")
+                .precio(35000.0)
+                .descripcion("Disco rígido 2TB")
+                .stock(20)
+                .imagen("hdd2tb.jpg")
+                .disponible(true)
+                .categoria(cat3)
+                .build();
+
+        Producto p10 = Producto.builder()
+                .nombre("SSD Samsung 980 Pro 2TB")
+                .precio(120000.0)
+                .descripcion("SSD NVMe Samsung 980 Pro 2TB")
+                .stock(10)
+                .imagen("980pro.jpg")
+                .disponible(true)
+                .categoria(cat3)
+
 
         //asignacion de categorias
         p1.setCategoria(cat1);

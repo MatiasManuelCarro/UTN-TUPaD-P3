@@ -3,10 +3,7 @@ package com.utn.entities;
 import com.utn .enums.Estado;
 import com.utn.enums.FormaPago;
 import com.utn.entities.Base;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -18,6 +15,9 @@ import java.util.Set;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Pedido extends Base implements Calculable {
     private LocalDate fecha;
     private Estado estado;
@@ -28,17 +28,6 @@ public class Pedido extends Base implements Calculable {
     //coleccion de detalle pedidos
     private Set<DetallePedido> detallePedidos = new HashSet<>();
 
-    public Pedido() {
-        super();
-    }
-
-    public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago) {
-        super();
-        this.fecha = fecha;
-        this.estado = estado;
-        this.total = total;
-        this.formapago = formapago;
-    }
 
     //Agregar detalle
     public void addDetallePedido(int cantidad, Producto producto) {

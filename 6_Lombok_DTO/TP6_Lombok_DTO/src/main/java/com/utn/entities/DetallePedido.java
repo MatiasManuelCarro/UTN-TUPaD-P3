@@ -2,10 +2,7 @@ package com.utn.entities;
 
 import com.utn.entities.Base;
 import com.utn.entities.Producto;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Objects;
 
@@ -14,6 +11,7 @@ import java.util.Objects;
 
 @ToString
 @EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
 
 public class DetallePedido extends Base {
 
@@ -21,10 +19,7 @@ public class DetallePedido extends Base {
     private Double subtotal;
     private Producto producto;
 
-    public DetallePedido() {
-        super();
-    }
-
+    @Builder
     public DetallePedido(int cantidad, Double subtotal) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
