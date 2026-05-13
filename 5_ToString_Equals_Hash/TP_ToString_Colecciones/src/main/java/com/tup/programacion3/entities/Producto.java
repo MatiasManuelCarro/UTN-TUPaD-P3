@@ -9,13 +9,14 @@ public class Producto extends Base{
     private int stock;
     private String imagen;
     private boolean disponible;
+
     private Categoria categoria;
 
     public Producto() {
         super();
     }
 
-    public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
+    public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible) {
         super();
         this.nombre = nombre;
         this.precio = precio;
@@ -23,7 +24,6 @@ public class Producto extends Base{
         this.stock = stock;
         this.imagen = imagen;
         this.disponible = disponible;
-        this.categoria = categoria;
     }
 
     public String getNombre() {
@@ -91,10 +91,10 @@ public class Producto extends Base{
                 ", stock=" + stock +
                 ", imagen='" + imagen + '\'' +
                 ", disponible=" + disponible +
-                ", categoria=" + categoria +
                 ", id=" + id +
                 ", eliminado=" + eliminado +
                 ", createdAt=" + createdAt +
+                ", categoria=" + categoria.getNombre() +
                 '}';
     }
 
@@ -104,7 +104,7 @@ public class Producto extends Base{
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
         return Objects.equals(nombre, producto.nombre) &&
-                Objects.equals(this.getId(), producto.getId());
+                Objects.equals(precio, producto.precio);
     }
 
     @Override

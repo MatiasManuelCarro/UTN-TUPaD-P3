@@ -33,7 +33,8 @@ public class Pedido extends Base implements Calculable{
     //Agregar detalle
     public void addDetallePedido(int cantidad, Producto producto) {
         double subtotal = cantidad * producto.getPrecio();
-        DetallePedido detalle = new DetallePedido(cantidad, subtotal, producto);
+        DetallePedido detalle = new DetallePedido(cantidad, subtotal);
+        detalle.setProducto(producto);
         detallePedidos.add(detalle);
     }
 

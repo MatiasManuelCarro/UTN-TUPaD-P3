@@ -37,7 +37,6 @@ public class Categoria extends Base{
 
     public void addProducto(Producto producto) {
         productos.add(producto);
-        producto.setCategoria(this);
     }
 
     @Override

@@ -1,4 +1,6 @@
 package com.tup.programacion3;
+import com.tup.programacion3.entities.DetallePedido;
+
 
 import com.tup.programacion3.entities.Categoria;
 import com.tup.programacion3.entities.Pedido;
@@ -42,21 +44,36 @@ public class Main {
         // 3. PRODUCTOS (10) – Partes de PC
         // ============================
 
-        Producto p1 = new Producto("RTX 4060", 450000.0, "NVIDIA RTX 4060 8GB", 10, "rtx4060.jpg", true, cat1);
-        Producto p2 = new Producto("RTX 4070 Super", 750000.0, "NVIDIA RTX 4070 Super 12GB", 8, "rtx4070s.jpg", true, cat1);
-        Producto p3 = new Producto("RX 7600", 380000.0, "AMD Radeon RX 7600 8GB", 12, "rx7600.jpg", true, cat1);
+        //Instanciando productos
+        Producto p1 = new Producto("RTX 4060", 450000.0, "NVIDIA RTX 4060 8GB", 10, "rtx4060.jpg", true);
+        Producto p2 = new Producto("RTX 4070 Super", 750000.0, "NVIDIA RTX 4070 Super 12GB", 8, "rtx4070s.jpg", true);
+        Producto p3 = new Producto("RX 7600", 380000.0, "AMD Radeon RX 7600 8GB", 12, "rx7600.jpg", true);
 
-        Producto p4 = new Producto("Intel i5 12400F", 180000.0, "Intel Core i5 12th Gen", 20, "i512400f.jpg", true, cat2);
-        Producto p5 = new Producto("Intel i7 13700K", 420000.0, "Intel Core i7 13th Gen", 15, "i713700k.jpg", true, cat2);
-        Producto p6 = new Producto("Ryzen 5 5600X", 200000.0, "AMD Ryzen 5 5600X", 18, "r55600x.jpg", true, cat2);
+        Producto p4 = new Producto("Intel i5 12400F", 180000.0, "Intel Core i5 12th Gen", 20, "i512400f.jpg", true);
+        Producto p5 = new Producto("Intel i7 13700K", 420000.0, "Intel Core i7 13th Gen", 15, "i713700k.jpg", true);
+        Producto p6 = new Producto("Ryzen 5 5600X", 200000.0, "AMD Ryzen 5 5600X", 18, "r55600x.jpg", true);
 
-        Producto p7 = new Producto("SSD Kingston 480GB", 25000.0, "SSD SATA 480GB", 30, "ssd480.jpg", true, cat3);
-        Producto p8 = new Producto("SSD NVMe 1TB", 55000.0, "SSD M.2 NVMe 1TB", 25, "nvme1tb.jpg", true, cat3);
-        Producto p9 = new Producto("HDD Seagate 2TB", 35000.0, "Disco rígido 2TB", 20, "hdd2tb.jpg", true, cat3);
-        Producto p10 = new Producto("SSD Samsung 980 Pro 2TB", 120000.0, "SSD NVMe Samsung 980 Pro 2TB", 10, "980pro.jpg", true, cat3);
+        Producto p7 = new Producto("SSD Kingston 480GB", 25000.0, "SSD SATA 480GB", 30, "ssd480.jpg", true);
+        Producto p8 = new Producto("SSD NVMe 1TB", 55000.0, "SSD M.2 NVMe 1TB", 25, "nvme1tb.jpg", true);
+        Producto p9 = new Producto("HDD Seagate 2TB", 35000.0, "Disco rígido 2TB", 20, "hdd2tb.jpg", true);
+        Producto p10 = new Producto("SSD Samsung 980 Pro 2TB", 120000.0, "SSD NVMe Samsung 980 Pro 2TB", 10, "980pro.jpg", true);
+
+        //asignacion de categorias
+        p1.setCategoria(cat1);
+        p2.setCategoria(cat1);
+        p3.setCategoria(cat1);
+
+        p4.setCategoria(cat2);
+        p5.setCategoria(cat2);
+        p6.setCategoria(cat2);
+
+        p7.setCategoria(cat3);
+        p8.setCategoria(cat3);
+        p9.setCategoria(cat3);
+        p10.setCategoria(cat3);
 
         // Colección de productos
-        Set<Producto> productos = Set.of(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10);
+        Set<Producto> productos = Set.of(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
         // ============================
         // 4. PEDIDOS (3)
@@ -141,11 +158,12 @@ public class Main {
                 "NVIDIA RTX 4060 8GB",
                 10,
                 "rtx4060.jpg",
-                true,
-                cat1
+                true
         );
 
         boolean existe = productos.contains(p1Duplicado);
-        System.out.println("¿El producto duplicado ya existe en el Set? " + existe);
+        System.out.println("¿El producto ya existe en el Set? " + existe);
+
     }
+
 }

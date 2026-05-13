@@ -1,6 +1,7 @@
 package com.tup.programacion3.entities;
 
 
+
 import java.util.Objects;
 
 public class DetallePedido extends Base {
@@ -13,10 +14,9 @@ public class DetallePedido extends Base {
         super();
     }
 
-        public DetallePedido(int cantidad, Double subtotal, Producto producto) {
+        public DetallePedido(int cantidad, Double subtotal) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
-        this.producto = producto;
     }
 
     public int getCantidad() {
