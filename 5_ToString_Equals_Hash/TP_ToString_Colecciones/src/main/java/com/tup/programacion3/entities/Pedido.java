@@ -15,14 +15,13 @@ public class Pedido extends Base implements Calculable{
     private FormaPago formapago;
     private Usuario usuario;
 
+    //coleccion de detalle pedidos
     private Set<DetallePedido> detallePedidos = new HashSet<>();
 
     public Pedido() {
         super();
     }
 
-
-    //constructor sin usuario
     public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago) {
         super();
         this.fecha = fecha;
@@ -30,18 +29,6 @@ public class Pedido extends Base implements Calculable{
         this.total = total;
         this.formapago = formapago;
     }
-
-
-
-    public Pedido(LocalDate fecha, Estado estado, Double total, FormaPago formapago, Usuario usuario) {
-        super();
-        this.fecha = fecha;
-        this.estado = estado;
-        this.total = total;
-        this.formapago = formapago;
-        this.usuario = usuario;
-    }
-
 
     //Agregar detalle
     public void addDetallePedido(int cantidad, Producto producto) {

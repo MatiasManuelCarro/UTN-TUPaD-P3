@@ -20,12 +20,6 @@ public abstract class Base {
         return id;
     }
 
-/*
-    public void setId(long id) {
-        this.id = id;
-    }
-*/
-
     public boolean isEliminado() {
         return eliminado;
     }

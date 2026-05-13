@@ -20,12 +20,12 @@ public class Main {
         // 1. USUARIOS (2)
         // ============================
         Usuario u1 = new Usuario(
-                "Juan", "Pérez", "juan@mail.com", "123456789",
+                "Matias", "Carro", "matiascarro@mail.com", "123456789",
                 "pass123", Rol.USUARIO
         );
 
         Usuario u2 = new Usuario(
-                "Ana", "Gómez", "ana@mail.com", "987654321",
+                "Juan", "Perez", "juanperez@mail.com", "987654321",
                 "clave456", Rol.ADMIN
         );
 

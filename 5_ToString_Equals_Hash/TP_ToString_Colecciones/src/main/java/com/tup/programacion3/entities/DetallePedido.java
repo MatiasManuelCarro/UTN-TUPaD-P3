@@ -13,7 +13,7 @@ public class DetallePedido extends Base {
         super();
     }
 
-    public DetallePedido(int cantidad, Double subtotal, Producto producto) {
+        public DetallePedido(int cantidad, Double subtotal, Producto producto) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
         this.producto = producto;
@@ -54,21 +54,22 @@ public class DetallePedido extends Base {
                 '}';
     }
 
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DetallePedido that = (DetallePedido) o;
-        return cantidad == that.cantidad &&
-                Objects.equals(producto, that.producto);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        DetallePedido detallePedido = (DetallePedido) obj;
+        return this.id == detallePedido.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cantidad, producto);
+        return Objects.hash(id);
     }
-
-
 }
+
+
+
 
 

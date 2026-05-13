@@ -12,6 +12,7 @@ public class Producto extends Base{
     private Categoria categoria;
 
     public Producto() {
+        super();
     }
 
     public Producto(String nombre, Double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
@@ -103,12 +104,12 @@ public class Producto extends Base{
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
         return Objects.equals(nombre, producto.nombre) &&
-                Objects.equals(precio, producto.precio);
+                Objects.equals(this.getId(), producto.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, precio);
+        return Objects.hash(nombre, getId());
     }
 
 }

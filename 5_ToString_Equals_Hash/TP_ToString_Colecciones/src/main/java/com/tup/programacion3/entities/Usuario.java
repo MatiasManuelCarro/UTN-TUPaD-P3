@@ -28,11 +28,11 @@ public class Usuario extends Base{
         this.rol = rol;
     }
 
+    //sets de pedidos
     private Set<Pedido> pedidos = new HashSet<>();
 
     public void addPedido(Pedido pedido) {
         pedidos.add(pedido);
-        pedido.setUsuario(this); // relacion
     }
 
     public Set<Pedido> getPedidos() {
@@ -88,13 +88,6 @@ public class Usuario extends Base{
         this.rol = rol;
     }
 
-/*    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void addPedidos(Pedido pedido) {
-        this.pedidos.add(pedido);
-    }*/
 
     @Override
     public String toString() {
@@ -104,23 +97,24 @@ public class Usuario extends Base{
                 ", mail='" + mail + '\'' +
                 ", celular='" + celular + '\'' +
                 ", contraseña='" + contraseña + '\'' +
-                ", rol=" + rol +
-                ", id=" + id +
-                ", eliminado=" + eliminado +
-                ", createdAt=" + createdAt +
+                ", rol=" + rol + '\'' +
+                ", id=" + id + '\'' +
+                ", eliminado=" + eliminado + '\'' +
+                ", createdAt=" + createdAt + '\'' +
+                "{Base = " + super.toString() +
                 '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass()!=obj.getClass())return false;
-        Usuario usuario = (Usuario) obj;
-        return this.id == usuario.getId() && this.mail.equals(usuario.mail);
-            }
+    public boolean equals(Object o) {
+        if (!(o instanceof Usuario usuario)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(mail, usuario.mail);
+    }
+
     @Override
-    public int hashCode(){
-        return Objects.hash(id, mail);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), mail);
     }
 }
 
