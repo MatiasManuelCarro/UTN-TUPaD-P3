@@ -22,6 +22,7 @@ public class Categoria extends Base {
     private String nombre;
     private String descripcion;
 
+    @Builder.Default
     private Set<Producto> productos = new HashSet<>();
 }
 

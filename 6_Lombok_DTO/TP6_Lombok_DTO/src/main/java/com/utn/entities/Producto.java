@@ -11,7 +11,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Producto extends Base {
     private String nombre;
     private Double precio;
