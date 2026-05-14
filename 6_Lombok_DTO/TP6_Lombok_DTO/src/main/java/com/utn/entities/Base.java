@@ -1,27 +1,24 @@
 package com.utn.entities;
 import lombok.*;
-
+import lombok.experimental.SuperBuilder;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 
 @Getter
 @ToString
 @EqualsAndHashCode(of={"id"})
-
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public abstract class Base {
 
+    protected static long idCounter = 0; //inicia contador de Ids
+    @Builder.Default
+    protected long id = ++idCounter;
+    @Builder.Default
+    protected boolean eliminado = false;
+    @Builder.Default
+    protected LocalDateTime createdAt = LocalDateTime.now();
 
-    protected final long id;
-    protected static int idCounter = 0; //contador de IDs
-    protected boolean eliminado;
-    protected LocalDateTime createdAt;
-
-
-    public Base() {
-        this.createdAt = LocalDateTime.now();
-        this.eliminado = false;
-        this.id = ++idCounter; //aumenta el numero de ID
-    }
 
 }

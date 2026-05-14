@@ -3,6 +3,7 @@ package com.utn.entities;
 import com.utn.entities.Base;
 import com.utn.entities.Producto;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-
+@SuperBuilder
 public class DetallePedido extends Base {
 
     private int cantidad;

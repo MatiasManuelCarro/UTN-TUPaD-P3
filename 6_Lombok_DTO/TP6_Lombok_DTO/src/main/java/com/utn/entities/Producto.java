@@ -6,12 +6,11 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-
 @ToString
-@EqualsAndHashCode(callSuper = false, of = {"nombre", "precio"})
+@EqualsAndHashCode(callSuper = false , of = {"nombre", "precio"})
 @SuperBuilder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Producto extends Base {
     private String nombre;

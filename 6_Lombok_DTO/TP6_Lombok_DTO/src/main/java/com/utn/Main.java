@@ -17,23 +17,43 @@ public class Main {
         // ============================
         // 1. USUARIOS (2)
         // ============================
-        Usuario u1 = new Usuario(
-                "Matias", "Carro", "matiascarro@mail.com", "123456789",
-                "pass123", Rol.USUARIO
-        );
+        Usuario u1 = Usuario.builder()
+                .nombre("Matias")
+                .apellido("Carro")
+                .mail("matias@mail.com")
+                .celular("123456789")
+                .contrasenia("pass123")
+                .rol(Rol.USUARIO)
+                .build();
 
-        Usuario u2 = new Usuario(
-                "Juan", "Perez", "juanperez@mail.com", "987654321",
-                "clave456", Rol.ADMIN
-        );
+
+        Usuario u2 = Usuario.builder()
+                .nombre("Emiliano")
+                .apellido("Gonzalez")
+                .mail("Emiliano@mail.com")
+                .celular("1100001111")
+                .contrasenia("word456")
+                .rol(Rol.USUARIO)
+                .build();
 
 
         // ============================
         // 2. CATEGORÍAS (3)
         // ============================
-        Categoria cat1 = new Categoria("Placas de Video", "Tarjetas gráficas para gaming y diseño");
-        Categoria cat2 = new Categoria("Microprocesadores", "CPUs Intel y AMD");
-        Categoria cat3 = new Categoria("Almacenamiento", "Discos SSD y HDD");
+
+        Categoria cat1 = Categoria.builder()
+                .nombre("Placas de Video")
+                .descripcion("Tarjetas Graficas, Nvidia, AMD e Intel")
+                .build();
+        Categoria cat2 = Categoria.builder()
+                .nombre("Microprocesadores")
+                .descripcion("Microprocesadores, CPUs Intel y AMD")
+                .build();
+        Categoria cat3 = Categoria.builder()
+                .nombre("Almacenamiento")
+                .descripcion("Discos HDD, SSD, M2 SATA y NVME")
+                .build();
+
 
 
         // ============================
@@ -139,6 +159,7 @@ public class Main {
                 .imagen("980pro.jpg")
                 .disponible(true)
                 .categoria(cat3)
+                .build();
 
 
         //asignacion de categorias
@@ -161,9 +182,28 @@ public class Main {
         // ============================
         // 4. PEDIDOS (3)
         // ============================
-        Pedido ped1 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.EFECTIVO);
+/*        Pedido ped1 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.EFECTIVO);
         Pedido ped2 = new Pedido(LocalDate.now(), Estado.CONFIRMADO, 0.0, FormaPago.TARJETA);
-        Pedido ped3 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.TRANSFERENCIA);
+        Pedido ped3 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.TRANSFERENCIA);*/
+
+        Pedido ped1 = Pedido.builder()
+                .fecha(LocalDate.now())
+                .estado(Estado.PENDIENTE)
+                .formapago(FormaPago.EFECTIVO)
+                .build();
+
+        Pedido ped2 = Pedido.builder()
+                .fecha(LocalDate.now())
+                .estado(Estado.CONFIRMADO)
+                .formapago(FormaPago.TARJETA)
+                .build();
+
+        Pedido ped3 = Pedido.builder()
+                .fecha(LocalDate.now())
+                .estado(Estado.PENDIENTE)
+                .formapago(FormaPago.TRANSFERENCIA)
+                .build();
+
 
 
         // Relacionar pedidos con usuarios
@@ -235,17 +275,18 @@ public class Main {
         // ============================
         System.out.println("\n=== Comparación de productos ===");
 
-        Producto p1Duplicado = new Producto(
-                "RTX 4060",
-                450000.0,
-                "NVIDIA RTX 4060 8GB",
-                10,
-                "rtx4060.jpg",
-                true
-        );
+        Producto p1Duplicado = Producto.builder()
+                .nombre("RTX 4060")
+                .precio(450000.0)
+                .descripcion("NVIDIA RTX 4060 8GB")
+                .stock(10)
+                .imagen("rtx4060.jpg")
+                .disponible(true)
+                .categoria(cat1)
+                .build();
 
         boolean existe = productos.contains(p1Duplicado);
-        System.out.println("¿El producto ya existe en el Set? " + existe);
+        System.out.println(" ¿El producto ya existe en el Set? " + existe);
 
     }
 

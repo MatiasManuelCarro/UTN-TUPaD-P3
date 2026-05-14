@@ -22,7 +22,6 @@ public class Categoria extends Base {
     private String nombre;
     private String descripcion;
 
-    @Builder.ObtainVia(method = "")
     private Set<Producto> productos = new HashSet<>();
 }
-}
+

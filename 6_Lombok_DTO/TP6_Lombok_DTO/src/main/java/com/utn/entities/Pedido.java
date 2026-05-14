@@ -4,6 +4,7 @@ import com.utn .enums.Estado;
 import com.utn.enums.FormaPago;
 import com.utn.entities.Base;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -17,7 +18,7 @@ import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 public class Pedido extends Base implements Calculable {
     private LocalDate fecha;
     private Estado estado;
@@ -26,6 +27,7 @@ public class Pedido extends Base implements Calculable {
     private Usuario usuario;
 
     //coleccion de detalle pedidos
+    @Builder.Default
     private Set<DetallePedido> detallePedidos = new HashSet<>();
 
 
