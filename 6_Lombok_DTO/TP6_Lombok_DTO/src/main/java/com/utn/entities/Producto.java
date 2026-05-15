@@ -19,6 +19,6 @@ public class Producto extends Base {
     private String imagen;
     private boolean disponible;
 
-    private Categoria categoria;
+    private Categoria categoria; //usarlo en un SET sacarlo del constructor
 
 }

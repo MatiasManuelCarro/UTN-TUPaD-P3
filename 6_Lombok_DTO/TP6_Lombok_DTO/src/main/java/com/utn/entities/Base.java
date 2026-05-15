@@ -6,12 +6,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @ToString
-@EqualsAndHashCode(of={"id"})
+@EqualsAndHashCode(of = {"id"})
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
 public abstract class Base {
 
+    //HACER FIJA LA ID INGRESADA EN EL CONSTRUCTOR. QUITAR CONTADOR
     protected static long idCounter = 0; //inicia contador de Ids
     @Builder.Default
     protected long id = ++idCounter;
@@ -19,6 +20,5 @@ public abstract class Base {
     protected boolean eliminado = false;
     @Builder.Default
     protected LocalDateTime createdAt = LocalDateTime.now();
-
 
 }

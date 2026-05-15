@@ -24,7 +24,7 @@ public class Pedido extends Base implements Calculable {
     private Estado estado;
     private Double total;
     private FormaPago formapago;
-    private Usuario usuario;
+    private Usuario usuario; //revisar
 
     //coleccion de detalle pedidos
     @Builder.Default

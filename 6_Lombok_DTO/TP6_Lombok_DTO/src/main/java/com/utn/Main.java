@@ -14,9 +14,9 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        // ============================
-        // 1. USUARIOS (2)
-        // ============================
+
+        // 1. USUARIOS
+
         Usuario u1 = Usuario.builder()
                 .nombre("Matias")
                 .apellido("Carro")
@@ -37,9 +37,8 @@ public class Main {
                 .build();
 
 
-        // ============================
-        // 2. CATEGORÍAS (3)
-        // ============================
+        // 2. CATEGORÍAS
+
 
         Categoria cat1 = Categoria.builder()
                 .nombre("Placas de Video")
@@ -55,10 +54,8 @@ public class Main {
                 .build();
 
 
+        // 3. PRODUCTOS
 
-        // ============================
-        // 3. PRODUCTOS (10) – Partes de PC
-        // ============================
 
         //Instanciando productos
         Producto p1 = Producto.builder()
@@ -177,11 +174,12 @@ public class Main {
         p10.setCategoria(cat3);
 
         // Colección de productos
+        // VER EL METODO .ADD()  <<<<<<!!!!!!!!!! PARA AGREGAR
         Set<Producto> productos = Set.of(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
-        // ============================
-        // 4. PEDIDOS (3)
-        // ============================
+
+        // 4. PEDIDOS
+
 /*        Pedido ped1 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.EFECTIVO);
         Pedido ped2 = new Pedido(LocalDate.now(), Estado.CONFIRMADO, 0.0, FormaPago.TARJETA);
         Pedido ped3 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.TRANSFERENCIA);*/
@@ -212,9 +210,9 @@ public class Main {
         u2.addPedido(ped3);
 
 
-        // ============================
-        // 5. DETALLES DE PEDIDO (mínimo 2 por pedido)
-        // ============================
+
+        // 5. DETALLES DE PEDIDO
+
 
         // Pedido 1
         ped1.addDetallePedido(1, p1);
@@ -229,21 +227,21 @@ public class Main {
         ped3.addDetallePedido(1, p10);
 
 
-        // ============================
+
         // 6. Mostrar un producto
-        // ============================
+
         System.out.println("\n=== Mostrar un producto ===");
         System.out.println(p1);
 
-        // ============================
+
         // 7. Listado de productos
-        // ============================
+
         System.out.println("\n=== Listado de productos ===");
         productos.forEach(System.out::println);
 
-        // ============================
+
         // Mostrar datos
-        // ============================
+
         System.out.println("Usuarios:");
         System.out.println(u1);
         System.out.println(u2);
@@ -260,9 +258,9 @@ public class Main {
             p.calcularTotal();
         }
 
-        // ============================
+
         // 8. Usuario con más pedidos
-        // ============================
+
         System.out.println("\n=== Usuario con más pedidos ===");
         Usuario usuarioConMasPedidos =
                 (u1.getPedidos().size() > u2.getPedidos().size()) ? u1 : u2;
@@ -270,9 +268,9 @@ public class Main {
         System.out.println("Usuario con más pedidos: " + usuarioConMasPedidos.getNombre());
         usuarioConMasPedidos.getPedidos().forEach(System.out::println);
 
-        // ============================
+
         // 9. Comparación de productos (Punto 5 del TP)
-        // ============================
+
         System.out.println("\n=== Comparación de productos ===");
 
         Producto p1Duplicado = Producto.builder()

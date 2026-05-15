@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 
 @ToString
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false, of = {"nombre"})
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
