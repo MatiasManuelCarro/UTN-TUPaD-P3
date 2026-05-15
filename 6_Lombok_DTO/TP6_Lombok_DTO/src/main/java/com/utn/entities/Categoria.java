@@ -9,12 +9,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@SuperBuilder
 @Getter
 @Setter
-
-@ToString
+@ToString(callSuper = true, exclude = "productos")
 @EqualsAndHashCode(callSuper = false, of = {"nombre"})
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Categoria extends Base {
@@ -24,5 +23,7 @@ public class Categoria extends Base {
 
     @Builder.Default
     private Set<Producto> productos = new HashSet<>();
+
+
 }
 

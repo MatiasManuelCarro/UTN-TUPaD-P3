@@ -18,16 +18,18 @@ public class Main {
         // 1. USUARIOS
 
         Usuario u1 = Usuario.builder()
+/*                .id(1L)*/
                 .nombre("Matias")
                 .apellido("Carro")
                 .mail("matias@mail.com")
                 .celular("123456789")
                 .contrasenia("pass123")
-                .rol(Rol.USUARIO)
+                .rol(Rol.ADMIN)
                 .build();
 
 
         Usuario u2 = Usuario.builder()
+/*                .id(2L)*/
                 .nombre("Emiliano")
                 .apellido("Gonzalez")
                 .mail("Emiliano@mail.com")
@@ -37,21 +39,6 @@ public class Main {
                 .build();
 
 
-        // 2. CATEGORÍAS
-
-
-        Categoria cat1 = Categoria.builder()
-                .nombre("Placas de Video")
-                .descripcion("Tarjetas Graficas, Nvidia, AMD e Intel")
-                .build();
-        Categoria cat2 = Categoria.builder()
-                .nombre("Microprocesadores")
-                .descripcion("Microprocesadores, CPUs Intel y AMD")
-                .build();
-        Categoria cat3 = Categoria.builder()
-                .nombre("Almacenamiento")
-                .descripcion("Discos HDD, SSD, M2 SATA y NVME")
-                .build();
 
 
         // 3. PRODUCTOS
@@ -59,105 +46,124 @@ public class Main {
 
         //Instanciando productos
         Producto p1 = Producto.builder()
+/*                .id(3L)*/
                 .nombre("RTX 4060")
                 .precio(450000.0)
                 .descripcion("NVIDIA RTX 4060 8GB")
                 .stock(10)
                 .imagen("rtx4060.jpg")
                 .disponible(true)
-                .categoria(cat1)
                 .build();
 
         Producto p2 = Producto.builder()
+/*                .id(4L)*/
                 .nombre("RTX 4070 Super")
                 .precio(750000.0)
                 .descripcion("NVIDIA RTX 4070 Super 12GB")
                 .stock(8)
                 .imagen("rtx4070s.jpg")
                 .disponible(true)
-                .categoria(cat1)
                 .build();
 
         Producto p3 = Producto.builder()
+/*                .id(5L)*/
                 .nombre("RX 7600")
                 .precio(380000.0)
                 .descripcion("AMD Radeon RX 7600 8GB")
                 .stock(12)
                 .imagen("rx7600.jpg")
                 .disponible(true)
-                .categoria(cat1)
                 .build();
 
         Producto p4 = Producto.builder()
+/*                .id(6L)*/
                 .nombre("Intel i5 12400F")
                 .precio(180000.0)
                 .descripcion("Intel Core i5 12th Gen")
                 .stock(20)
                 .imagen("i512400f.jpg")
                 .disponible(true)
-                .categoria(cat2)
                 .build();
 
         Producto p5 = Producto.builder()
+/*                .id(7L)*/
                 .nombre("Intel i7 13700K")
                 .precio(420000.0)
                 .descripcion("Intel Core i7 13th Gen")
                 .stock(15)
                 .imagen("i713700k.jpg")
                 .disponible(true)
-                .categoria(cat2)
                 .build();
 
         Producto p6 = Producto.builder()
+/*                .id(8L)*/
                 .nombre("Ryzen 5 5600X")
                 .precio(200000.0)
                 .descripcion("AMD Ryzen 5 5600X")
                 .stock(18)
                 .imagen("r55600x.jpg")
                 .disponible(true)
-                .categoria(cat2)
                 .build();
 
         Producto p7 = Producto.builder()
+/*                .id(9L)*/
                 .nombre("SSD Kingston 480GB")
                 .precio(25000.0)
                 .descripcion("SSD SATA 480GB")
                 .stock(30)
                 .imagen("ssd480.jpg")
                 .disponible(true)
-                .categoria(cat3)
                 .build();
 
         Producto p8 = Producto.builder()
+/*                .id(10L)*/
                 .nombre("SSD NVMe 1TB")
                 .precio(55000.0)
                 .descripcion("SSD M.2 NVMe 1TB")
                 .stock(25)
                 .imagen("nvme1tb.jpg")
                 .disponible(true)
-                .categoria(cat3)
                 .build();
 
         Producto p9 = Producto.builder()
+  /*              .id(11L)*/
                 .nombre("HDD Seagate 2TB")
                 .precio(35000.0)
                 .descripcion("Disco rígido 2TB")
                 .stock(20)
                 .imagen("hdd2tb.jpg")
                 .disponible(true)
-                .categoria(cat3)
                 .build();
 
         Producto p10 = Producto.builder()
+/*                .id(12L)*/
                 .nombre("SSD Samsung 980 Pro 2TB")
                 .precio(120000.0)
                 .descripcion("SSD NVMe Samsung 980 Pro 2TB")
                 .stock(10)
                 .imagen("980pro.jpg")
                 .disponible(true)
-                .categoria(cat3)
                 .build();
 
+
+        // 2. CATEGORÍAS
+
+
+        Categoria cat1 = Categoria.builder()
+/*                .id(13L)*/
+                .nombre("Placas de Video")
+                .descripcion("Tarjetas Graficas, Nvidia, AMD e Intel")
+                .build();
+        Categoria cat2 = Categoria.builder()
+/*                .id(14L)*/
+                .nombre("Microprocesadores")
+                .descripcion("Microprocesadores, CPUs Intel y AMD")
+                .build();
+        Categoria cat3 = Categoria.builder()
+/*                .id(15L)*/
+                .nombre("Almacenamiento")
+                .descripcion("Discos HDD, SSD, M2 SATA y NVME")
+                .build();
 
         //asignacion de categorias
         p1.setCategoria(cat1);
@@ -174,29 +180,28 @@ public class Main {
         p10.setCategoria(cat3);
 
         // Colección de productos
-        // VER EL METODO .ADD()  <<<<<<!!!!!!!!!! PARA AGREGAR
         Set<Producto> productos = Set.of(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
 
         // 4. PEDIDOS
 
-/*        Pedido ped1 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.EFECTIVO);
-        Pedido ped2 = new Pedido(LocalDate.now(), Estado.CONFIRMADO, 0.0, FormaPago.TARJETA);
-        Pedido ped3 = new Pedido(LocalDate.now(), Estado.PENDIENTE, 0.0, FormaPago.TRANSFERENCIA);*/
 
         Pedido ped1 = Pedido.builder()
+/*                .id(16L)*/
                 .fecha(LocalDate.now())
                 .estado(Estado.PENDIENTE)
                 .formapago(FormaPago.EFECTIVO)
                 .build();
 
         Pedido ped2 = Pedido.builder()
+/*                .id(17L)*/
                 .fecha(LocalDate.now())
                 .estado(Estado.CONFIRMADO)
                 .formapago(FormaPago.TARJETA)
                 .build();
 
         Pedido ped3 = Pedido.builder()
+   /*             .id(18L)*/
                 .fecha(LocalDate.now())
                 .estado(Estado.PENDIENTE)
                 .formapago(FormaPago.TRANSFERENCIA)
@@ -274,6 +279,7 @@ public class Main {
         System.out.println("\n=== Comparación de productos ===");
 
         Producto p1Duplicado = Producto.builder()
+/*                .id(19L)*/
                 .nombre("RTX 4060")
                 .precio(450000.0)
                 .descripcion("NVIDIA RTX 4060 8GB")
@@ -284,8 +290,19 @@ public class Main {
                 .build();
 
         boolean existe = productos.contains(p1Duplicado);
-        System.out.println(" ¿El producto ya existe en el Set? " + existe);
+        System.out.println(" ¿El producto ya existe? " + existe);
+
+
+
+        //========================
+        // Test de equals and hashcode
+
+
 
     }
+
+
+
+
 
 }

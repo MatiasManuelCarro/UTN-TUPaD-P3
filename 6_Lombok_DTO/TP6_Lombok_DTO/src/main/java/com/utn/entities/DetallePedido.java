@@ -11,9 +11,9 @@ import java.util.Objects;
 @Setter
 
 @ToString
-//usar producto
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor //agregar allargscontructor
+@EqualsAndHashCode(callSuper = false, of = {"producto"})
+@NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class DetallePedido extends Base {
 
@@ -21,9 +21,9 @@ public class DetallePedido extends Base {
     private Double subtotal;
     private Producto producto;
 
-    @Builder //revisar como usar solo superbuilder
     public DetallePedido(int cantidad, Double subtotal) {
         this.cantidad = cantidad;
         this.subtotal = subtotal;
+
     }
 }

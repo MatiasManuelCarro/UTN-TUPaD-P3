@@ -3,6 +3,8 @@ package com.utn.entities;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Set;
+
 
 @Getter
 @Setter
@@ -19,6 +21,7 @@ public class Producto extends Base {
     private String imagen;
     private boolean disponible;
 
-    private Categoria categoria; //usarlo en un SET sacarlo del constructor
+    private Categoria categoria;
+
 
 }

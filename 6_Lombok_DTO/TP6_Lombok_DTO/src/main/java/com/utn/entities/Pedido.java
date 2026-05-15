@@ -24,7 +24,7 @@ public class Pedido extends Base implements Calculable {
     private Estado estado;
     private Double total;
     private FormaPago formapago;
-    private Usuario usuario; //revisar
+/*    private Usuario usuario; //revisar*/
 
     //coleccion de detalle pedidos
     @Builder.Default
@@ -33,6 +33,16 @@ public class Pedido extends Base implements Calculable {
 
     //Agregar detalle
     public void addDetallePedido(int cantidad, Producto producto) {
+
+        //si ya se encuentra en el detalle aumenta la cantidad
+        for (DetallePedido d : detallePedidos) {
+            if (d.getProducto().equals(producto)) {
+                d.setCantidad(d.getCantidad() + cantidad);
+                d.setSubtotal(d.getCantidad() * producto.getPrecio());
+                return;
+            }
+        }
+
         double subtotal = cantidad * producto.getPrecio();
         DetallePedido detalle = new DetallePedido(cantidad, subtotal);
         detalle.setProducto(producto);
@@ -41,9 +51,9 @@ public class Pedido extends Base implements Calculable {
 
     //Buscar detalle por producto
     public DetallePedido findDetallePedidoByProducto(Producto producto) {
-        for (DetallePedido d : detallePedidos) {
-            if (d.getProducto().equals(producto)) {
-                return d;
+        for (DetallePedido det : detallePedidos) {
+            if (det.getProducto().equals(producto)) {
+                return det;
             }
         }
         return null;
